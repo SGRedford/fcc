@@ -2,14 +2,16 @@ const character = "#";
 const count = 8;
 const rows = [];
 
-function padRow(name) {
-  return character + name;
+function padRow(rowNumber, rowCount) {
+  return (
+    " ".repeat(rowCount - rowNumber) +
+    character.repeat(2 * rowNumber - 1) +
+    " ".repeat(rowCount - rowNumber)
+  );
 }
-const call = padRow("sean");
-console.log(call);
 
-for (let i = 0; i < count; i = i + 1) {
-  rows.push(character.repeat(i + 1));
+for (let i = 1; i <= count; i++) {
+  rows.push(padRow(i, count));
 }
 
 let result = "";
